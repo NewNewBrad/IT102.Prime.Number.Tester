@@ -1,0 +1,64 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Brad Jones - IT102 NSC</title>
+<style type="text/css">
+	*{
+		padding:0;
+		margin:0;
+		text-align:center;
+	}
+	body{
+		background:#6D79A8;
+		font-size:100%;
+	}
+	div#wrapper{
+		height:400px;
+		width:600px;
+		margin:20px auto;
+		background:#C9D0F2;
+	}
+	form{
+		text-align:center;
+	}
+	button{
+		margin:15px;
+	}
+</style>
+
+</head>
+
+<body>
+<div id="wrapper">
+<script type="text/javascript">
+var prime_test = function prime_test(){
+	var RandomNum = Math.ceil(Math.random()*1000)
+	alert("Your random number is: " + RandomNum + ".")
+
+	if (RandomNum % 2 == 0){
+		alert("Sorry, " + RandomNum + " is not prime.")
+		return
+	}// (RandomNum % 2 == 0)
+
+	else{	
+		var sqroot = Math.ceil(Math.sqrt(RandomNum));
+		for (i = 2; i <= sqroot; i++){
+			if (RandomNum % i == 0 && RandomNum >= i){
+				alert("Sorry, " + RandomNum + " is not prime.")
+				return
+			}
+			else {
+			alert("Congratulations " + RandomNum + " is prime!")
+			return
+			}//else
+			}//else
+}
+}
+</script>
+
+<p>Press the button to generate a random number between 1 and 1000, and then check if it is prime.<br>
+<button onclick="prime_test()">Test</button> 
+</div><!-- End of Wrapper -->
+</body>
+</html> 
