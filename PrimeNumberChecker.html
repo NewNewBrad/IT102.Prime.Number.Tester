@@ -14,8 +14,8 @@
 		font-size:100%;
 	}
 	div#wrapper{
-		height:400px;
-		width:600px;
+		height:200px;
+		width:350px;
 		margin:20px auto;
 		background:#C9D0F2;
 	}
@@ -25,6 +25,10 @@
 	button{
 		margin:15px;
 	}
+	p{
+		margin:10px;
+	}
+
 </style>
 
 </head>
@@ -32,28 +36,32 @@
 <body>
 <div id="wrapper">
 <script type="text/javascript">
+	var loopcount = 0
 var prime_test = function prime_test(){
 	var RandomNum = Math.ceil(Math.random()*1000)
-	alert("Your random number is: " + RandomNum + ".")
+	var sqroot = Math.floor(Math.sqrt(RandomNum));
+
+	alert("Your random number is: " + RandomNum + ". It's square root is " +sqroot + ".")
 
 	if (RandomNum % 2 == 0){
-		alert("Sorry, " + RandomNum + " is not prime.")
+		alert("Sorry, " + RandomNum + " is even, therefore it is not prime.")
 		return
 	}// (RandomNum % 2 == 0)
 
-	else{	
-		var sqroot = Math.ceil(Math.sqrt(RandomNum));
-		for (i = 2; i <= sqroot; i++){
-			if (RandomNum % i == 0 && RandomNum >= i){
-				alert("Sorry, " + RandomNum + " is not prime.")
-				return
-			}
-			else {
-			alert("Congratulations " + RandomNum + " is prime!")
+	for ( var i = 3; loopcount < sqroot; i++){
+		if (RandomNum % i == 0){
+			alert("Sorry, " + RandomNum + " is not prime. It is divisible by " + i)
 			return
-			}//else
-			}//else
-}
+		}
+		if (loopcount > sqroot){
+			alert("Congratulations " + RandomNum + "looks to be prime!")
+			return
+		}
+
+		else {loopcount = loopcount + 1;}
+		console.log("i = " + i + " loopcount = " + loopcount + ".")
+		console.log("RandomNum = " + RandomNum + "SQRT = " + sqroot)
+	}
 }
 </script>
 
